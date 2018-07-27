@@ -80,6 +80,10 @@ class SparseMatrix {
 	 * @return sum of sparse matrix
 	 */
 	static SparseMatrix add(SparseMatrix obj1, SparseMatrix obj2) {
+
+		if (obj1.noOfRows != obj2.noOfRows || obj1.noOfColumns != obj2.noOfColumns) {
+			throw new AssertionError("addition not possible");
+		}
 		int[][] sumMatrix = new int[obj1.noOfRows][obj1.noOfColumns];
 		for (int i = 0; i < obj1.noOfRows; i++) {
 			for (int j = 0; j < obj2.noOfColumns; j++) {
@@ -99,6 +103,9 @@ class SparseMatrix {
 	 * @return multiplication of sparse matrix
 	 */
 	static SparseMatrix multiply(SparseMatrix obj1, SparseMatrix obj2) {
+		if (obj1.noOfColumns != obj2.noOfRows) {
+			throw new AssertionError("multiplication not possible");
+		}
 		int multiplyMatrix[][] = new int[obj1.noOfRows][obj2.noOfColumns];
 		for (int i = 0; i < obj1.noOfRows; i++) {
 			for (int j = 0; j < obj2.noOfColumns; j++) {
@@ -135,10 +142,12 @@ class SparseMatrix {
 	 * @return true if matrix is symmetric otherwise return false
 	 */
 	boolean checkSymmetry() {
+		if (noOfRows != noOfColumns) {
+			throw new AssertionError("matrix is not square matrix so it is not symmetric");
+		}
 		boolean status = true;
 		for (int i = 0; i < nonZeroElements; i++) {
-			if (getElement(sparseArray[i][0], sparseArray[i][1]) 
-					!= getElement(sparseArray[i][1], sparseArray[i][0])) {
+			if (getElement(sparseArray[i][0], sparseArray[i][1]) != getElement(sparseArray[i][1], sparseArray[i][0])) {
 				status = false;
 			}
 		}
