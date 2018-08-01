@@ -41,7 +41,6 @@ public class Triangle implements Shape {
 	 */
 	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
 		return 0.5 * height * base;
 	}
 
@@ -52,7 +51,6 @@ public class Triangle implements Shape {
 	 */
 	@Override
 	public double getPerimeter() {
-		// TODO Auto-generated method stub
 		double hypotenuse = Math.sqrt(Math.pow(height, 2) + Math.pow(base, 2));
 		return height + base + hypotenuse;
 	}
@@ -64,7 +62,6 @@ public class Triangle implements Shape {
 	 */
 	@Override
 	public Point getOrigin() {
-		// TODO Auto-generated method stub
 		return point;
 	}
 
@@ -79,7 +76,6 @@ public class Triangle implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(double x, double y) {
-		// TODO Auto-generated method stub
 		Point point1 = new Point(point.getX() + base, point.getY());
 		Point point2 = new Point(point.getX(), point.getY() + height);
 		double area1 = findAreaUsingPoints(x, y, point.getX(), point.getY(), point1.getX(), point1.getY());
@@ -113,7 +109,6 @@ public class Triangle implements Shape {
 	 */
 	@Override
 	public ShapeType getShapeType() {
-		// TODO Auto-generated method stub
 		return ShapeType.TRIANGLE;
 	}
 
