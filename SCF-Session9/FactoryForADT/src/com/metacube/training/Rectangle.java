@@ -40,7 +40,6 @@ public class Rectangle implements Shape {
 	 */
 	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
 		return width * height;
 	}
 
@@ -51,7 +50,6 @@ public class Rectangle implements Shape {
 	 */
 	@Override
 	public double getPerimeter() {
-		// TODO Auto-generated method stub
 		return 2 * (width + height);
 	}
 
@@ -62,7 +60,6 @@ public class Rectangle implements Shape {
 	 */
 	@Override
 	public Point getOrigin() {
-		// TODO Auto-generated method stub
 		return point;
 	}
 
@@ -77,7 +74,6 @@ public class Rectangle implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(double x, double y) {
-		// TODO Auto-generated method stub
 		boolean status = false;
 		if (x >= point.getX() && x <= point.getX() + width && y >= point.getY() && y <= point.getY() + height) {
 			status = true;
