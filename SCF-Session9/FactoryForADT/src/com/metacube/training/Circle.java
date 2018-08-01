@@ -37,7 +37,6 @@ public class Circle implements Shape {
 	 */
 	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
 		return (Math.PI * radius * radius);
 	}
 
@@ -102,7 +101,6 @@ public class Circle implements Shape {
 	 */
 	@Override
 	public ShapeType getShapeType() {
-		// TODO Auto-generated method stub
 		return ShapeType.CIRCLE;
 	}
 
