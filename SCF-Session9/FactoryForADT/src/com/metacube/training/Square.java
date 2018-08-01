@@ -37,7 +37,6 @@ public class Square implements Shape {
 	 */
 	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
 		return width * width;
 	}
 
@@ -48,7 +47,6 @@ public class Square implements Shape {
 	 */
 	@Override
 	public double getPerimeter() {
-		// TODO Auto-generated method stub
 		return 4 * width;
 	}
 
@@ -59,7 +57,6 @@ public class Square implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(double x, double y) {
-		// TODO Auto-generated method stub
 		boolean status = false;
 		if (x >= point.getX() && x <= point.getX() + width && y >= point.getY() && y <= point.getY() + width) {
 			status = true;
@@ -75,7 +72,6 @@ public class Square implements Shape {
 	 */
 	@Override
 	public Point getOrigin() {
-		// TODO Auto-generated method stub
 		return point;
 	}
 
@@ -85,7 +81,6 @@ public class Square implements Shape {
 
 	@Override
 	public ShapeType getShapeType() {
-		// TODO Auto-generated method stub
 		return ShapeType.SQUARE;
 	}
 
