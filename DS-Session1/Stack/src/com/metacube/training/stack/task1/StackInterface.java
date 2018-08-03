@@ -1,9 +1,9 @@
 package com.metacube.training.stack.task1;
 
-public interface StackInterface<GenericType> {
-	void push(GenericType value);
+public interface StackInterface<T> {
+	void push(T value);
 
-	GenericType pop();
+	T pop();
 
 	boolean isEmpty();
 
