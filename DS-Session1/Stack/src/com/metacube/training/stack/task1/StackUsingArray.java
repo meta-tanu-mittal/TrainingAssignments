@@ -8,9 +8,9 @@ package com.metacube.training.stack.task1;
  * @param <GenericType>
  *            is used for passing generic values in stack
  */
-public class StackUsingArray<GenericType> implements StackInterface<GenericType> {
+public class StackUsingArray<T> implements StackInterface<T> {
 	private int max;
-	private GenericType[] stack;
+	private T[] stack;
 	private int topIndex = -1;
 
 	/**
@@ -28,7 +28,7 @@ public class StackUsingArray<GenericType> implements StackInterface<GenericType>
 	 */
 	public StackUsingArray(int size) {
 		max = size;
-		stack = (GenericType[]) new Object[max];
+		stack = (T[]) new Object[max];
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class StackUsingArray<GenericType> implements StackInterface<GenericType>
 			throw new AssertionError("stack overflow");
 		else {
 			topIndex++;
-			stack[topIndex] = (GenericType) value;
+			stack[topIndex] = (T) value;
 		}
 	}
 
@@ -53,12 +53,12 @@ public class StackUsingArray<GenericType> implements StackInterface<GenericType>
 	 * @return value of item to be removed
 	 */
 	@Override
-	public GenericType pop() {
-		GenericType removedElement;
+	public T pop() {
+		T removedElement;
 		if (isEmpty()) {
 			throw new AssertionError("stack underflow");
 		} else {
-			removedElement = (GenericType) stack[topIndex];
+			removedElement = (T) stack[topIndex];
 			topIndex--;
 
 		}
@@ -91,8 +91,8 @@ public class StackUsingArray<GenericType> implements StackInterface<GenericType>
 	 * 
 	 * @return array of items
 	 */
-	public GenericType[] getObjectList() {
-		GenericType[] array = (GenericType[]) new Object[top() + 1];
+	public T[] getObjectList() {
+		T[] array = (T[]) new Object[top() + 1];
 		for (int i = 0; i <= top(); i++)
 			array[i] = stack[i];
 		return array;
