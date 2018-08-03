@@ -5,15 +5,15 @@ package com.metacube.training.task3;
  * 
  * @author user
  *
- * @param <GenericType>
+ * @param <T>
  */
-public class QueueUsingLinkList<GenericType> {
+public class QueueUsingLinkList<T> {
 
 	public class Node {
-		GenericType data;
+		T data;
 		Node next;
 
-		public Node(GenericType data) {
+		public Node(T data) {
 			this.data = data;
 			next = null;
 
@@ -30,7 +30,7 @@ public class QueueUsingLinkList<GenericType> {
 	 * @param value
 	 *            is the value to be added in queue
 	 */
-	public void addItem(GenericType value) {
+	public void addItem(T value) {
 		Node newNode = new Node(value);
 		if (front == null && rear == null) {
 			front = newNode;
@@ -47,11 +47,11 @@ public class QueueUsingLinkList<GenericType> {
 	 * 
 	 * @return removed item
 	 */
-	public GenericType pop() {
+	public T pop() {
 		if (rear == null) {
 			throw new RuntimeException("no element exist in queue");
 		}
-		GenericType deletedValue = front.data;
+		T deletedValue = front.data;
 		front = front.next;
 		return deletedValue;
 	}
@@ -70,7 +70,7 @@ public class QueueUsingLinkList<GenericType> {
 	 * 
 	 * @return array
 	 */
-	public GenericType[] getObjectList() {
+	public T[] getObjectList() {
 		Node temp = front;
 
 		int noOfElements = 0;
@@ -78,7 +78,7 @@ public class QueueUsingLinkList<GenericType> {
 			noOfElements++;
 			temp = temp.next;
 		}
-		GenericType[] array = (GenericType[]) new Object[noOfElements];
+		T[] array = (T[]) new Object[noOfElements];
 		temp = front;
 		int count = 0;
 		while (temp != null) {
@@ -92,7 +92,7 @@ public class QueueUsingLinkList<GenericType> {
 	/**
 	 * display elements of queue
 	 */
-	void display() {
+	public void display() {
 		Node temp = front;
 		while (temp != null) {
 			System.out.println(temp.data);
