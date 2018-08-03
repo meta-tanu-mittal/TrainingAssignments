@@ -8,12 +8,12 @@ package com.metacube.training.task2;
  * @param <GenericType>
  *            is used to perform operations on any type of value
  */
-public class QueueUsingArray<GenericType> implements QueueInterface<GenericType> {
+public class QueueUsingArray<T> implements QueueInterface<T> {
 
 	private int front = -1;
 	private int rear = -1;
 	private int maxSize;
-	private GenericType[] queueArray;
+	private T[] queueArray;
 
 	/**
 	 * default constructor
@@ -30,7 +30,7 @@ public class QueueUsingArray<GenericType> implements QueueInterface<GenericType>
 	 */
 	public QueueUsingArray(int max) {
 		maxSize = max;
-		queueArray = (GenericType[]) new Object[maxSize];
+		queueArray = (T[]) new Object[maxSize];
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class QueueUsingArray<GenericType> implements QueueInterface<GenericType>
 	 *            is item to be added
 	 */
 	@Override
-	public void addItem(GenericType value) {
+	public void addItem(T value) {
 		if (front == -1 && rear == -1) {
 			front++;
 			rear++;
@@ -58,9 +58,9 @@ public class QueueUsingArray<GenericType> implements QueueInterface<GenericType>
 	 * @return deleted value
 	 */
 	@Override
-	public GenericType removeItem() {
+	public T removeItem() {
 
-		GenericType removedItem;
+		T removedItem;
 		if (!(isEmpty())) {
 			removedItem = queueArray[front];
 			front++;
@@ -101,8 +101,8 @@ public class QueueUsingArray<GenericType> implements QueueInterface<GenericType>
 	 * 
 	 * @return array
 	 */
-	public GenericType[] getObjectList() {
-		GenericType[] array = (GenericType[]) new Object[rear - front + 1];
+	public T[] getObjectList() {
+		T[] array = (T[]) new Object[rear - front + 1];
 		for (int i = front; i <= rear; i++)
 			array[i] = queueArray[i];
 		return array;
