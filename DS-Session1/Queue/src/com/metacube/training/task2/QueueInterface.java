@@ -1,9 +1,9 @@
 package com.metacube.training.task2;
 
-public interface QueueInterface<GenericType> {
-	public void addItem(GenericType value);
+public interface QueueInterface<T> {
+	public void addItem(T value);
 
-	public GenericType removeItem();
+	public T removeItem();
 
 	boolean isEmpty();
 
