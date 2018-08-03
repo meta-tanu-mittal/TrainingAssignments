@@ -8,13 +8,13 @@ package com.metacube.training.stack.task1;
  * @param <GenericType>
  */
 
-public class StackUsingLinkList<GenericType> implements StackInterface<GenericType> {
+public class StackUsingLinkList<T> implements StackInterface<T> {
 
 	class Node {
-		GenericType data;
+		T data;
 		Node next;
 
-		public Node(GenericType data) {
+		public Node(T data) {
 			this.data = data;
 			next = null;
 
@@ -31,7 +31,7 @@ public class StackUsingLinkList<GenericType> implements StackInterface<GenericTy
 	 *            the value to be inserted
 	 */
 	@Override
-	public void push(GenericType value) {
+	public void push(T value) {
 		Node newNode = new Node(value);
 		newNode.next = topNode;
 		topNode = newNode;
@@ -44,11 +44,11 @@ public class StackUsingLinkList<GenericType> implements StackInterface<GenericTy
 	 * @return value of removed element
 	 */
 	@Override
-	public GenericType pop() {
+	public T pop() {
 		if (topNode == null) {
 			throw new RuntimeException("stack is full");
 		}
-		GenericType deletedValue = topNode.data;
+		T deletedValue = topNode.data;
 		topNode = topNode.next;
 		return deletedValue;
 	}
@@ -69,7 +69,7 @@ public class StackUsingLinkList<GenericType> implements StackInterface<GenericTy
 	 * @return array of elements
 	 */
 
-	GenericType[] getObjectList() {
+	public T[] getObjectList() {
 		Node temp = topNode;
 
 		int noOfElements = 0;
@@ -77,7 +77,7 @@ public class StackUsingLinkList<GenericType> implements StackInterface<GenericTy
 			noOfElements++;
 			temp = temp.next;
 		}
-		GenericType[] array = (GenericType[]) new Object[noOfElements];
+		T[] array = (T[]) new Object[noOfElements];
 		temp = topNode;
 		int count = 0;
 		while (temp != null) {
