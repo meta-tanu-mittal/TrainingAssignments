@@ -41,8 +41,8 @@ public class UndirectedGraph implements IUndirectedGraph {
 	 */
 	public boolean addEdge(GraphEdge edge) {
 		if (edge.getWeight() > 0) {
-			if (edge.getVertex1() >= 0 || edge.getVertex1() < noOfVertex
-					|| edge.getVertex2() >= 0 || edge.getVertex2() < noOfVertex) {
+			if ((edge.getVertex1() >= 0 || edge.getVertex1() < noOfVertex)
+					&& (edge.getVertex2() >= 0 || edge.getVertex2() < noOfVertex)) {
 				listOfEdges.add(edge);
 				adjacencyMatrix[edge.getVertex1()][edge.getVertex2()] = edge
 						.getWeight();
