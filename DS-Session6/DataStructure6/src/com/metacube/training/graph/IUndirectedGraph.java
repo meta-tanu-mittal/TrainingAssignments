@@ -30,7 +30,17 @@ public interface IUndirectedGraph {
 	 * find minimum spanning tree
 	 * 
 	 * @return list of graph edges that form minimum spanning tree
+	 * @throws GraphException 
 	 */
-	List<GraphEdge> minimumSpanningTree();
+	List<GraphEdge> minimumSpanningTree() throws GraphException;
+	
+	/**
+	 * find shortest path between source and destination
+	 * @param source is a source vertex
+	 * @param destination is a destination vertex
+	 * @return shortest path
+	 * @throws GraphException
+	 */
+	int shortestPath(int source,int destination) throws GraphException;
 
 }

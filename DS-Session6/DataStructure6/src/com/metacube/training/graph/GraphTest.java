@@ -23,6 +23,7 @@ public class GraphTest {
 	}
 	
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testIsReachable() {
 		UndirectedGraph obj=new UndirectedGraph(4);
@@ -37,7 +38,7 @@ public class GraphTest {
 
 	
 	@Test
-	public void testMinimumSpanningTree() {
+	public void testMinimumSpanningTree() throws GraphException {
 		UndirectedGraph obj=new UndirectedGraph(4);
 		assertTrue(obj.addEdge(new GraphEdge(1,2,10)));
 		assertTrue(obj.addEdge(new GraphEdge(1,3,8)));
@@ -55,6 +56,18 @@ public class GraphTest {
 			assertEquals(expected.get(i).getVertex2(),result.get(i).getVertex2());
 			assertEquals(expected.get(i).getWeight(),result.get(i).getWeight());
 		}
+	
+	}
+	
+	@Test
+	public void testShortestPath() throws GraphException {
+		UndirectedGraph obj=new UndirectedGraph(4);
+		assertTrue(obj.addEdge(new GraphEdge(1,2,10)));
+		assertTrue(obj.addEdge(new GraphEdge(1,3,8)));
+		assertTrue(obj.addEdge(new GraphEdge(3,2,6)));
+		assertTrue(obj.addEdge(new GraphEdge(3,0,4)));
+		assertTrue(obj.addEdge(new GraphEdge(0,2,2)));
+		assertEquals(12,obj.shortestPath(0, 1));
 	
 	}
 

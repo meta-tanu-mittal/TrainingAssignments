@@ -1,6 +1,7 @@
 package com.metacube.training.graph;
 
 import com.metacube.training.stack.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -40,8 +41,8 @@ public class UndirectedGraph implements IUndirectedGraph {
 	 */
 	public boolean addEdge(GraphEdge edge) {
 		if (edge.getWeight() > 0) {
-			if (edge.getVertex1() >= 0 && edge.getVertex1() < noOfVertex
-					&& edge.getVertex2() >= 0 && edge.getVertex2() < noOfVertex) {
+			if (edge.getVertex1() >= 0 || edge.getVertex1() < noOfVertex
+					|| edge.getVertex2() >= 0 || edge.getVertex2() < noOfVertex) {
 				listOfEdges.add(edge);
 				adjacencyMatrix[edge.getVertex1()][edge.getVertex2()] = edge
 						.getWeight();
@@ -97,7 +98,7 @@ public class UndirectedGraph implements IUndirectedGraph {
 	}
 
 	@Override
-	public List<GraphEdge> minimumSpanningTree() {
+	public List<GraphEdge> minimumSpanningTree() throws GraphException {
 		Set<Integer> visitedVertexSet = new HashSet<Integer>();
 		List<GraphEdge> listOfVisitedEdge = new ArrayList<GraphEdge>();
 		Collections.sort(listOfEdges);
@@ -138,7 +139,7 @@ public class UndirectedGraph implements IUndirectedGraph {
 		}
 
 		if (visitedVertexSet.size() != noOfVertex) {
-			throw new AssertionError("spanning tree not possible");
+			throw new GraphException("spanning tree not possible");
 		}
 
 		return listOfVisitedEdge;
@@ -198,6 +199,78 @@ public class UndirectedGraph implements IUndirectedGraph {
 			}
 		}
 		return -1;
+	}
+
+	@Override
+	public int shortestPath(int source, int destination) throws GraphException {
+		if (source < 0 || source >= noOfVertex || destination < 0
+				|| destination >= noOfVertex) {
+			throw new GraphException("invalid vertex");
+		}
+
+		int[] distance = dijkstra(source);
+		return distance[destination];
+
+	}
+
+	/**
+	 * helper method to find shortest path
+	 * 
+	 * @param source
+	 *            is a source vertex
+	 * @return array of shortest distance from source vertex
+	 */
+	private int[] dijkstra(int source) {
+		int[] shortestDistance = new int[noOfVertex];
+		Boolean processedVertex[] = new Boolean[noOfVertex];
+		for (int i = 0; i < noOfVertex; i++) {
+			shortestDistance[i] = Integer.MAX_VALUE;
+			processedVertex[i] = false;
+		}
+		shortestDistance[source] = 0;
+
+		for (int i = 0; i < noOfVertex - 1; i++) {
+			int u = minDistanceIndex(shortestDistance, processedVertex);
+			processedVertex[u] = true;
+
+			for (int v = 0; v < noOfVertex; v++) {
+
+				if (!processedVertex[v]
+						&& adjacencyMatrix[u][v] != 0
+						&& shortestDistance[u] != Integer.MAX_VALUE
+						&& shortestDistance[u] + adjacencyMatrix[u][v] < shortestDistance[v]) {
+					shortestDistance[v] = shortestDistance[u]
+							+ adjacencyMatrix[u][v];
+				}
+			}
+		}
+		return shortestDistance;
+
+	}
+
+	/**
+	 * helper method to find minimum distance index
+	 * 
+	 * @param shortestDistance
+	 *            is a shortest distance array
+	 * @param processedVertex
+	 *            is an array which store true if vertex is processed
+	 * @return index of shortest distance
+	 */
+	private int minDistanceIndex(int shortestDistance[],
+			Boolean processedVertex[]) {
+
+		int min = Integer.MAX_VALUE, min_index = -1;
+
+		for (int i = 0; i < noOfVertex; i++)
+			if (processedVertex[i] == false && shortestDistance[i] <= min) {
+				if (shortestDistance[i] <= min) {
+					min = shortestDistance[i];
+					min_index = i;
+				}
+			}
+
+		return min_index;
 	}
 
 }
