@@ -50,7 +50,7 @@ user_id INT,
 contact_no varchar(12) NOT NULL,
 FOREIGN KEY(user_id) REFERENCES User(id));
 
-#Product category relationship tabl
+#Product category relationship table
 CREATE TABLE Product_Category_Relation(
 category_id INT,
 product_id INT,
