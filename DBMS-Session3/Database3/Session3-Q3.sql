@@ -1,4 +1,4 @@
-USE store_front;
+﻿USE store_front;
 
 #Session3 Q3
 /*Display Shopper’s information along with number of orders he/she placed during last 30 days.*/
@@ -23,8 +23,37 @@ SELECT p.id ,p.name,COUNT(od.product_id)
 FROM Product p
 INNER JOIN Order_Details od ON p.id=od.product_id
 INNER JOIN Order_Placed op ON od.order_id=op.id
-WHERE DATEDIFF(now(),op.order_date)<160
+WHERE DATEDIFF(now(),op.order_date)<60
 GROUP BY od.product_id
 ORDER BY COUNT(od.product_id)
 LIMIT 20;
+
+
+/*Display Monthly sales revenue of the StoreFront for last 6 months. 
+It should display each month’s sale.*/
+
+/*Mark the products as Inactive which are not ordered in last 90 days.*/
+ALTER TABLE Product
+ADD COLUMN product_state varchar(10) default 'active';
+
+UPDATE Product p
+SET p.product_state='inactive'
+WHERE p.id NOT IN
+(SELECT DISTINCT od.product_id
+ FROM Order_Details od
+INNER JOIN Order_Placed op  ON od.order_id=op.id
+WHERE DATEDIFF(CURDATE(),op.order_date)<90);
+
+
+/*Given a category search keyword, display all the Products present in this category/categories. */
+
+
+/*Display top 10 Items which were cancelled most.*/
+SELECT p.id,p.name,count(*)
+FROM Product p
+INNER JOIN Order_Details od ON p.id=od.product_id
+WHERE od.status='cancelled'
+GROUP BY od.product_id DESC
+ORDER BY COUNT(*)
+LIMIT 10;
 
