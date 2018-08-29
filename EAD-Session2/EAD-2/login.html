@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp</title>
+        <link rel="stylesheet" href="styles.css">
+		<script>
+		function validateLogin()
+		{
+		var name=document.getElementById("email");
+		var pass=document.getElementById("password");
+		if(name.value=="tanu.mittal@metacube.com" && pass.value=="Tanu@1234")
+		{
+		return true;
+		}
+		else
+		{
+		alert("error:");
+		return false;
+		}
+		}
+		</script>
+    </head>
+<body>
+<table width="100%" align="center" id="header">
+ <tr>
+	<td>
+        <img src="image/logo.png" height="25%">
+     </td>
+	<td align="right">
+        <a href="home.html">Home</a>&nbsp
+	    <a href="#">About</a>&nbsp
+	    <a href="#">Product</a>&nbsp
+	    <a href="#">Gallery</a>&nbsp
+	    <a href="contact.html">Contact</a>&nbsp
+	    <a href="signUp.html">SignUp</a>&nbsp
+	    <a href="login.html">Login</a>
+	</td>
+ <tr>
+ </table>
+ <hr>
+ 
+ <center>
+ <h1>Login</h1>
+ </center>
+ 
+ 
+ <form action="profile.html" method="post" id="formTable" onsubmit="return validateLogin()">
+ <center>
+ <table>
+ 
+	 <tr>
+		 <td>Email</td>
+		 <td><input type="text" id="email"  required/></td>
+	 </tr>
+	 
+	 <tr>
+		 <td>Password</td>
+		 <td><input type="password" id="pass"  required/></td>
+	 </tr>
+	 
+
+	 <tr>
+		 <td colspan="2" >
+		     <input type="submit" value="Login" id="submitButton"/>
+	     </td>
+	 </tr>
+ </table>
+ </center>
+ </form>
+ 
+ <hr>
+ <p align="center">&copy Copyright 2016-17 | All Rights Reserved | Metacube Training</p>
+ 
+ 
+ </body>
