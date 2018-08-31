@@ -3,6 +3,7 @@ package com.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,10 +28,18 @@ public class AddEmployee extends HttpServlet {
 
 		Employee employee = new Employee(firstName, lastName, email, age);
 		EmployeeOperation obj=new EmployeeOperation();
-		obj.addEmployee(employee);
-
 		PrintWriter out = response.getWriter();
-		response.setContentType("index.html");
+		if(obj.addEmployee(employee))
+		{
+			out.println("<script>alert('employee added successfully!!')</script>");
+		}
+		else
+		{
+			out.println("<script>alert('error:')</script>");
+		}
+		RequestDispatcher rd=request.getRequestDispatcher("index.html");
+		rd.include(request, response);
+		out.close();
 
 	}
 

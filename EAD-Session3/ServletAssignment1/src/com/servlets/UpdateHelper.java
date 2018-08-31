@@ -28,7 +28,7 @@ public class UpdateHelper extends HttpServlet {
 		out.println("<body>");
 		out.println("<h1 align='center'>Update</h1>");
 		out.println("<form action='UpdateEmployee'>");
-		out.println("<table align='center' >");
+		out.println("<table align='center' cellspacing='30px' >");
 
 		out.println("<tr><td>Id</td>");
 		out.println("<td><input type='text' name = 'id' value='" + emp.getId() + "' readonly/></td></tr>");

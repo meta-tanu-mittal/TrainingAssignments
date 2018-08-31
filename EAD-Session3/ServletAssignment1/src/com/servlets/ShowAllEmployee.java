@@ -28,12 +28,13 @@ public class ShowAllEmployee extends HttpServlet {
 		out.println("<body>");
 		out.println("<h1 align='center'>Show All Employee</h1>");
 		out.println("<table align='center' cellspacing='30px'>");
-		out.println("<th>");
-		out.println("<td>First Name</td>");
-		out.println("<td>Last Name</td>");
-		out.println("<td>Email</td>");
-		out.println("<td>Age</td>");
-		out.println("</th>");
+		out.println("<tr>");
+		out.println("<th>SNo</td>");
+		out.println("<th>First Name</td>");
+		out.println("<th>Last Name</td>");
+		out.println("<th>Email</td>");
+		out.println("<th>Age</td>");
+		out.println("</tr>");
 		int rowCount = 1;
 		for (Employee employee : listOfEmployee) {
 			out.println("<tr>");

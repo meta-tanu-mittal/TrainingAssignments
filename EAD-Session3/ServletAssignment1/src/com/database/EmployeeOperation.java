@@ -12,8 +12,9 @@ import com.model.Employee;
 
 public class EmployeeOperation {
 	
-	public void addEmployee(Employee employee)
-	{
+	public boolean addEmployee(Employee employee)
+	{    
+		boolean inserted=false;
 		String query=DBQueries.insertEmployee;
 		
 		Connection con=DBConnection.getConnection();
@@ -25,10 +26,14 @@ public class EmployeeOperation {
 			ps.setString(3, employee.getEmail());
 			ps.setInt(4, employee.getAge());
 			
-			int result=ps.executeUpdate();
+			if(ps.executeUpdate()>0)
+			{
+				return true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return inserted;
 	}
  
 	public  List<Employee> searchEmployee(String firstName,String lastName)
@@ -58,7 +63,7 @@ public class EmployeeOperation {
 		return employeeList;
 	}
 	
-	public List getAllEmployee()
+	public List<Employee> getAllEmployee()
 	{
 		List<Employee> listOfEmployee=new ArrayList<Employee>();
 		String query=DBQueries.allEmployee;
@@ -87,8 +92,9 @@ public class EmployeeOperation {
 	}
 	
 	
-	public  void UpdateEmployee(Employee employee)
+	public  boolean updateEmployee(Employee employee)
 	{  
+		boolean updated=false;
 	   String query=DBQueries.updateEmployee;
 	   Connection con= DBConnection.getConnection();
 	
@@ -99,12 +105,15 @@ public class EmployeeOperation {
         ps.setString(3, employee.getEmail());
         ps.setInt(4, employee.getAge());
         ps.setInt(5, employee.getId());
-        int res=ps.executeUpdate();
+        if(ps.executeUpdate()>0)
+        {
+        	updated=true;
+        }
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
 
-		
+	return updated;	
 	}
 	
 	public  Employee searchById(int id)

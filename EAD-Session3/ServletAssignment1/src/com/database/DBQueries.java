@@ -7,7 +7,7 @@ public interface DBQueries {
 	
 	public static final String searchEmployee="SELECT first_name,last_name,email,age "
 			+ "FROM employee_detail "
-			+ "WHERE first_name=? OR last_name=?";
+			+ "WHERE first_name LIKE CONCAT('%',?,'%') OR last_name LIKE CONCAT('%',?,'%')";
 	
 	public static final String allEmployee="SELECT id,first_name,last_name,email,age "
 			+ "FROM employee_detail ";

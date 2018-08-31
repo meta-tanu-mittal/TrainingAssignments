@@ -3,6 +3,7 @@ package com.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,17 @@ public class UpdateEmployee extends HttpServlet {
 		employee.setId(id);
 
 		EmployeeOperation obj=new EmployeeOperation();
-		obj.UpdateEmployee(employee);
+		if(obj.updateEmployee(employee))
+		{
+			out.println("<script>alert('employee updated successfully!!')</script>");
+		}
+		else
+		{
+			out.println("<script>alert('error:')</script>");
+		}
+		RequestDispatcher rd=req.getRequestDispatcher("index.html");
+		rd.include(req, res);
+
 		out.close();
 	}
 
