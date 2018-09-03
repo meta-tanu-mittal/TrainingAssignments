@@ -21,7 +21,7 @@ public class UserFriend extends HttpServlet{
 		User user=(User) session.getAttribute("userDetail");
 	
 	UserDao obj=new UserDao();
-	List<User> listOfUser = obj.getAllFriend(user.getOrganization());
+	List<User> listOfUser = obj.getAllFriend(user.getOrganization(),user.getEmail());
 	System.out.println(listOfUser.size());
 
 	res.setContentType("text/html");
