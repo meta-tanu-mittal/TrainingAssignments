@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.metacube.training.model.Project;
+import com.metacube.training.model.Skill;
 import com.metacube.training.service.ProjectService;
+import com.metacube.training.service.SkillService;
 
 
 @Controller
@@ -72,5 +74,37 @@ public class AdminController {
 	}
 
 
+	@Autowired
+	private SkillService skillService;
+	
+	@RequestMapping(path="skills/add",method=RequestMethod.GET)
+	public String createSkill(Model model)
+	{
+		model.addAttribute("skill", new Skill());
+		return "admin/editSkill";
+	}
 
+	@RequestMapping(path="/skills",method=RequestMethod.GET)
+	public String getAllSkills(Model model)
+	{
+		model.addAttribute("skills",skillService.getAllSkills() );
+		return "admin/skills";
+	}
+	
+	@RequestMapping(path="/skills/edit" ,method=RequestMethod.GET)
+	public String editSkill(Model model,@RequestParam("id") int id)
+	{
+		model.addAttribute("skill", skillService.getSkillById(id));
+		return "admin/editSkill";
+	}
+	
+	@RequestMapping(path="skills",method=RequestMethod.POST)
+	public String saveSkill(@ModelAttribute("skill") Skill skill) {
+		if(skill!= null && skill.getSkillId() == 0) {
+			skillService.createSkill(skill);
+		}else {
+			skillService.updateSkill(skill);
+		}
+		return "redirect:/admin/skills";
+	}
 }

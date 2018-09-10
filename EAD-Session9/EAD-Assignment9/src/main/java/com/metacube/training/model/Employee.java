@@ -37,24 +37,7 @@ public class Employee {
 		this.secondaryContactNo = secondaryContactNo;
 		this.emailId = emailId;
 		this.skypeId = skypeId;
-		this.password = password;
-		this.isActive = isActive;
 	}
-
-
-
-	public Employee(String firstName, String lastName, Date dob, String gender, String primaryContactNo,
-			String secondaryContactNo, String emailId, String skypeId) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dob = dob;
-		this.gender = gender;
-		this.primaryContactNo = primaryContactNo;
-		this.secondaryContactNo = secondaryContactNo;
-		this.emailId = emailId;
-		this.skypeId = skypeId;
-	}
-
 
 
 	public int getEmpCode() {

@@ -15,7 +15,7 @@ import com.metacube.training.model.Skill;
 
 
 @Repository
-public class SkillDAOImpl {
+public class SkillDAOImpl  implements SkillDAO{
 	
 	private JdbcTemplate jdbcTemplate;
 	
@@ -40,9 +40,15 @@ public class SkillDAOImpl {
 		return jdbcTemplate.query(SQL_GET_ALL, new SkillMapper());
 	}
 
-//	public boolean deleteProject(Project project) {
-//		return jdbcTemplate.update(SQL_DELETE_PROJECT, project.getProjectId()) > 0;
-//	}
+    public boolean createSkill(Skill skill)
+    {
+    	return jdbcTemplate.update(SQL_INSERT_SKILL, skill.getSkillName())>0;
+    }
+    
+    public boolean updateSkill(Skill skill)
+    {
+    	return jdbcTemplate.update(SQL_UPDATE_SKILL,skill.getSkillName(),skill.getSkillId())>0;
+    }
 
 
 
