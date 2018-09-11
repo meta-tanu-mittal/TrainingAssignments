@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SignUp</title>
+
+		<script type="text/javascript" src="myScript.js"></script>
+		<link rel="stylesheet" href="styles.css">
+
+	</head>
+<body>
+	<table width="100%" align="center" id="header">
+		 <tr>
+			<td>
+				<img src="image/logo.png" height="50%">
+			</td>
+			<td align="right">
+				<a href="home.html">Home</a>&nbsp
+				<a href="#">About</a>&nbsp
+				<a href="#">Product</a>&nbsp
+				<a href="#">Gallery</a>&nbsp
+				<a href="contact.html">Contact</a>
+				<a href="signUp.html">SignUp</a>&nbsp
+				<a href="login.html">Login</a>
+			</td>
+		 </tr>
+	 </table>
+ <hr>
+ 
+ <center>
+	 <h1>New User Registration</h1>
+ </center>
+ <br><br>
+ 
+ 
+ <form action="welcome.html" method="post" >
+ <center>
+	 <table>
+	 <tr>
+		 <td>
+			 First Name
+		 </td>
+		 <td>
+			 <input type="text" id="firstName" onblur="return validateName(id)" required/>
+		 </td>
+	 </tr>
+	 
+	  <tr>
+		 <td>
+			Last Name
+		</td>
+		 <td>
+			 <input type="text" id="lastName" onblur="return validateName(id)" required/>
+		</td>
+	 </tr>
+
+	 <tr>
+		 <td>
+			 Email
+		 </td>
+		 <td>
+			 <input type="text" id="email" onblur="return validateEmail()" required/><span id="typeEmail"></span>
+		 </td>
+	 </tr>
+	 
+	 <tr>
+		 <td>
+			 Password
+		 </td>
+		 <td>
+			 <input type="password" id="pass" onkeyup="validatePassword()" required/><span id="typePassword"></span>
+		</td>
+	 </tr>
+	 
+	 <tr>
+		 <td>
+			 Confirm Password
+		 </td>
+		 <td>
+			 <input type="password" id="confirmPass" onkeyup="validateConfirmPassword()" required />
+				 <span id="spanConfirmPass"></span>
+		 </td>
+	 </tr>
+	 
+	  <tr>
+		 <td>
+			 Contact
+		 </td>
+		 <td>
+			 <input type="text" id="contact" onblur="return validateContact()" required/>
+		 </td>
+	 </tr>
+	 
+	 <tr>
+		 <td>
+			 Company
+		 </td>
+		 <td>
+			 <select>
+				 <option>Metacube</option>
+				 <option>Appirio</option>
+				 <option>Girnar</option>
+			 </select>
+		 </td>
+	 </tr>
+	 
+
+	 <tr>
+		 <td colspan="2" >
+			 <input type="submit" value="submit"/>
+	     </td>
+	 </tr>
+	 </table>
+ </center>
+ </form>
+ 
+ <hr>
+ <p align="center">&copy Copyright 2016-17 | All Rights Reserved | Metacube Training</p>
+ 
+ 
+ </body>

@@ -1,0 +1,33 @@
+h1
+{
+color:black;
+font-size:40px;
+}
+
+#header {
+	background-color:rgba(255,0,0,0.4);
+}
+
+#header a{
+	text-decoration:none;
+	color:black;
+	padding:10px 20px;
+	border:1px solid rgba(255,0,0,0.8);
+	border-radius:13px;
+
+}
+
+#submitButton
+{
+    border:1px solid orange;
+	border-radius:2px;
+    padding:5px 15px;
+    box-shadow: 2px 3px;
+    text-transform: uppercase;
+}
+
+#formTable td
+{
+    padding: 10px 10px;
+    letter-spacing: 2px;
+}
