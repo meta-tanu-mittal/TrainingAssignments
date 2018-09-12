@@ -12,10 +12,10 @@ import com.metacube.training.mappers.ProjectMapper;
 import com.metacube.training.model.Project;
 
 @Repository
-public class ProjectDAOImpl  implements ProjectDAO{
+public class ProjectDAOImpl implements ProjectDAO {
 
 	private JdbcTemplate jdbcTemplate;
-	
+
 	@Autowired
 	public ProjectDAOImpl(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
@@ -40,15 +40,13 @@ public class ProjectDAOImpl  implements ProjectDAO{
 	}
 
 	public boolean updateProject(Project project) {
-		return jdbcTemplate.update(SQL_UPDATE_PROJECT, project.getName(), project.getDescription(), project.getStartDate(),
-				project.getEndDate(),project.getProjectId()) > 0;
+		return jdbcTemplate.update(SQL_UPDATE_PROJECT, project.getName(), project.getDescription(),
+				project.getStartDate(), project.getEndDate(), project.getProjectId()) > 0;
 	}
 
 	public boolean createProject(Project project) {
-		return jdbcTemplate.update(SQL_INSERT_PROJECT, project.getName(), project.getDescription(), project.getStartDate(),
-				project.getEndDate()) > 0;
+		return jdbcTemplate.update(SQL_INSERT_PROJECT, project.getName(), project.getDescription(),
+				project.getStartDate(), project.getEndDate()) > 0;
 	}
-
-	
 
 }

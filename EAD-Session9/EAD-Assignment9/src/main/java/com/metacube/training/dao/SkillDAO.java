@@ -4,7 +4,7 @@ import java.util.List;
 import com.metacube.training.model.Skill;
 
 public interface SkillDAO {
-	
+
 	Skill getSkillById(int id);
 
 	List<Skill> getAllSkills();

@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class WelcomeController {
 
-	@RequestMapping(value="/",method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
 		model.addAttribute("greeting", "Hello World from Spring 4 MVC");
 		return "welcome";
 	}
-
-	
 
 }

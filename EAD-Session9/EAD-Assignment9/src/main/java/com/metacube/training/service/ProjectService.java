@@ -4,10 +4,8 @@ import java.util.List;
 
 import com.metacube.training.model.Project;
 
-
 public interface ProjectService {
 
-	
 	Project getProjectById(int id);
 
 	List<Project> getAllProjects();

@@ -5,7 +5,7 @@ import java.util.List;
 import com.metacube.training.model.Skill;
 
 public interface SkillService {
-	
+
 	Skill getSkillById(int id);
 
 	List<Skill> getAllSkills();

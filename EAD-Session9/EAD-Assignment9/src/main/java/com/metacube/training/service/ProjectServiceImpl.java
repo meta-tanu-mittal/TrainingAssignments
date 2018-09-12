@@ -13,9 +13,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Autowired
 	private ProjectDAO projectDAO;
-	
-	
-	
+
 	@Override
 	public List<Project> getAllProjects() {
 		return projectDAO.getAllProjects();
@@ -34,7 +32,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	public boolean createProject(Project project) {
-		
+
 		return projectDAO.createProject(project);
 	}
 
@@ -43,5 +41,4 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectDAO.getProjectById(id);
 	}
 
-	
 }

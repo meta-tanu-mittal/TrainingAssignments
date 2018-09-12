@@ -9,7 +9,6 @@ public class Employee {
 	private int empCode;
 	private String firstName;
 	private String lastName;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 	private String gender;
 	private String primaryContactNo;
@@ -18,27 +17,11 @@ public class Employee {
 	private String skypeId;
 	private String profilePicture;
 	private String password;
-	private boolean isActive;
+	private boolean enabled;
 
 	public Employee() {
 
 	}
-	
-	
-
-	public Employee(int empCode, String firstName, String lastName, Date dob, String gender,
-			String primaryContactNo, String secondaryContactNo, String emailId, String skypeId) {
-		this.empCode = empCode;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dob = dob;
-		this.gender = gender;
-		this.primaryContactNo = primaryContactNo;
-		this.secondaryContactNo = secondaryContactNo;
-		this.emailId = emailId;
-		this.skypeId = skypeId;
-	}
-
 
 	public int getEmpCode() {
 		return empCode;
@@ -128,12 +111,20 @@ public class Employee {
 		this.password = password;
 	}
 
-	public boolean isActive() {
-		return isActive;
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empCode=" + empCode + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob
+				+ ", gender=" + gender + ", primaryContactNo=" + primaryContactNo + ", secondaryContactNo="
+				+ secondaryContactNo + ", emailId=" + emailId + ", skypeId=" + skypeId + ", profilePicture="
+				+ profilePicture + ", password=" + password + ", enabled=" + enabled + "]";
 	}
 
 }
