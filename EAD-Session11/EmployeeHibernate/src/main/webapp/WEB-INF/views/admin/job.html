@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="ISO-8859-1">
+<title>job Title Page</title>
+</head>
+<body>
+
+	<a href="job/add">Add Job Title</a>
+	<div class="container">
+		<div th:if="${not #lists.isEmpty(jobs)}">
+			<h2>All Jobs</h2>
+			<table class="table table-striped">
+				<tr>
+					<th>Job Code</th>
+					<th>Job Title</th>
+				</tr >
+                <tr th:each="job:${jobs}">
+                <td th:text=${job.jobCode}>Job Code</td>
+                <td th:text=${job.jobTitle}>Job Title</td>
+                <td> <a th:href="${'job/edit?id='+job.jobCode}" class="btn btn-default" >Edit</a></td>
+                </tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
