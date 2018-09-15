@@ -40,5 +40,9 @@ public interface EmployeeDAO {
 	 * @return employee details corresponding to email id and password
 	 */
 	public Employee checkValidLogin(String emailId, String password);
+	
+	public List<Employee> getEmployeeByName(String name);
+	
+	public Employee getEmployeeByEmailId(String emailId);
 
 }

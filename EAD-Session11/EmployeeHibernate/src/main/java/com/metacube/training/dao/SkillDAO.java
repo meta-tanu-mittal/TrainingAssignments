@@ -12,5 +12,7 @@ public interface SkillDAO {
 	boolean updateSkill(Skill skill);
 
 	boolean createSkill(Skill skill);
+	
+	Skill getSkillByName(String skillName);
 
 }

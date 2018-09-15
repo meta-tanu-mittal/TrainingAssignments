@@ -14,5 +14,9 @@ public interface EmployeeService {
 	public List<Employee> getAllEmployee();
 
 	public Employee checkValidLogin(String emailId, String password);
+	
+	public List<Employee> getEmployeeByName(String name);
+	
+	public Employee getEmployeeByEmailId(String emailId);
 
 }

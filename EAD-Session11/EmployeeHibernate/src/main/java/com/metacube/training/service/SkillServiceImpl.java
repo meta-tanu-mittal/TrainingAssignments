@@ -34,4 +34,9 @@ public class SkillServiceImpl implements SkillService {
 		return skillDAO.createSkill(skill);
 	}
 
+	@Override
+	public Skill getSkillByName(String skillName) {
+		return skillDAO.getSkillByName(skillName);
+	}
+
 }

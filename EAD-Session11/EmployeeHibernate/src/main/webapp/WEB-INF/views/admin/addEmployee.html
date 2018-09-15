@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -7,64 +7,100 @@
 <body>
 
 	<form action="addEmployee" method="post">
-		<table>
-			<tr>
-				<td>First Name</td>
-				<td><input type="text" name="firstName"/></td>
-			</tr>
-			<tr>
-				<td>Last Name</td>
-				<td><input type="text" name="lastName"/></td>
-			</tr>
-			<tr>
-				<td>Date Of Birth</td>
-				<td><input type="date" name="dob"/></td>
-			</tr>
-			<tr>
-				<td>Gender</td>
-				<td><input type="radio" name="gender" value="male" checked>
-					Male <input type="radio" name="gender" value="female">
-					Female <input type="radio" name="gender" value="other">
-					Other</td>
-			</tr>
-			<tr>
-				<td>Primary Contact Number</td>
-				<td><input type="text" name="primaryContactNo"/></td>
-			</tr>
-			<tr>
-				<td>Secondary Contact Number</td>
-				<td><input type="text" name="secondaryContactNo"/></td>
-			</tr>
-			<tr>
-				<td>Email id</td>
-				<td><input type="email" name="emailId"/></td>
-			</tr>
-			<tr>
-				<td>Skype id</td>
-				<td><input type="text" name="skypeId"/></td>
-			</tr>
-			<!--  <tr>
-				<td>Reporting Manager:</td>
-				<td><select name="reportingMgr">
-						<option value="n/a">N/A</option>
-						<option th:each="employee : ${employees}"
-							th:value="${employee.empCode}"
-							th:text="${employee.empCode}">EmployeeCode</option>
-				</select></td>
-			</tr>
-			 <tr>
-				<td>Team Lead</td>
-				<td><select name="teamLead">
-						<option value="n/a">N/A</option>
-						<option th:each="employee : ${employees}"
-							th:value="${employee.empCode}"
-							th:text="${employee.empCode}">Team Lead</option>
-				</select></td>
-			</tr>-->
-			<tr colspan="2">
-				<td><input type="submit" value="Add Employee" /></td>
-			</tr>
-		</table>
+		<div th:object="${employee}">
+			<table>
+				<tr>
+					<td>First Name</td>
+					<td><input type="text" name="firstName" /></td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type="text" name="lastName" /></td>
+				</tr>
+				<tr>
+					<td>Date Of Birth</td>
+					<td><input type="date" name="dob" /></td>
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<td><input type="radio" name="gender" value="male" checked>
+						Male <input type="radio" name="gender" value="female">
+						Female <input type="radio" name="gender" value="other">
+						Other</td>
+				</tr>
+				<tr>
+					<td>Primary Contact Number</td>
+					<td><input type="text" name="primaryContactNo" /></td>
+				</tr>
+				<tr>
+					<td>Secondary Contact Number</td>
+					<td><input type="text" name="secondaryContactNo" /></td>
+				</tr>
+				<tr>
+					<td>Email id</td>
+					<td><input type="email" name="emailId" /></td>
+				</tr>
+				<tr>
+					<td>Skype id</td>
+					<td><input type="text" name="skypeId" /></td>
+				</tr>
+				</table>
+				</div>
+
+				<div th:object="${jobDetails}">
+					<table>
+						<tr>
+							<td>Date of Joining:</td>
+							<td><input type="date" name="dateOfJoining" required /></td>
+						</tr>
+						<tr>
+							<td>Experience in years:</td>
+							<td><input type="number" name="totalExperience" required /></td>
+						</tr>
+						<tr>
+							<td>Job Title</td>
+							<td><select name="jobCode">
+									<option th:each="jobTitle: ${jobTitles}"
+										th:value="${jobTitle.jobCode}">[[${jobTitle.jobTitle}]]</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>Reporting Manager</td>
+							<td><select name="reportingManagerId">
+									<option th:each="employee:${employees}" th:value ="${employee.empCode}"
+									th:text="${employee.FirstName+' '+employee.LastName}"></option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>Team Leader</td>
+							<td><select name="teamLeadId">
+									<option th:each="employee:${employees}" th:value = "${employee.empCode}"
+									th:text="${employee.FirstName+' '+employee.LastName}"></option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>Current Project</td>
+							<td><select name="currProjId">
+									<option th:each="project:${projects}" th:value="${project.projectId}"
+									th:text="${project.name+' '+project.projectId}"></option>
+							</select></td>
+						</tr>
+					</table>
+
+                 </div>
+                 <div>
+                 <table>
+                 <tr>
+							<td>Skills</td>
+							<td><select name="skillId" multiple>
+									<option th:each="skill: ${skills}" th:value="${skill.skillId}"
+									th:text="${skill.skillName}"></option>
+							</select></td>
+						</tr>
+                 </table>
+                 </div>
+
+			<input type="submit" value="Add Employee" />
 	</form>
 
 </body>

@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.metacube.training.model.Job;
 import com.metacube.training.model.Project;
 import com.metacube.training.model.Skill;
@@ -75,6 +76,13 @@ public class SkillDAOImpl implements SkillDAO {
 
 		return sessionFactory.getCurrentSession().createQuery(update)
 				.executeUpdate() > 0;
+	}
+
+	@Override
+	public Skill getSkillByName(String skillName) {
+		Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Skill.class);
+		criteria.add(Restrictions.eq("skillName",skillName));
+		return (Skill) criteria.uniqueResult();
 	}
 
 }

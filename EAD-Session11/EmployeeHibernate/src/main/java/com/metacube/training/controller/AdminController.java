@@ -2,6 +2,7 @@ package com.metacube.training.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +20,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.metacube.training.dao.EmployeeDAOImpl;
 import com.metacube.training.model.Employee;
+import com.metacube.training.model.EmployeeSkill;
 import com.metacube.training.model.Job;
+import com.metacube.training.model.JobDetails;
 import com.metacube.training.model.Project;
 import com.metacube.training.model.Skill;
 import com.metacube.training.service.EmployeeService;
+import com.metacube.training.service.EmployeeSkillService;
+import com.metacube.training.service.JobDetailsService;
 import com.metacube.training.service.JobService;
 import com.metacube.training.service.ProjectService;
 import com.metacube.training.service.SkillService;
@@ -39,6 +44,10 @@ public class AdminController {
 	private JobService jobService;
 	@Autowired
 	private EmployeeService employeeService;
+	@Autowired
+	private JobDetailsService jobDetailsService;
+	@Autowired
+	private EmployeeSkillService employeeSkillService;
 
 	@GetMapping("/login")
 	public String login() {
@@ -122,15 +131,35 @@ public class AdminController {
 
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
 	public ModelAndView getEmployeeForm(Model model) {
-		model.addAttribute("employee", new Employee());
 		model.addAttribute("employees", employeeService.getAllEmployee());
 		model.addAttribute("projects", projectService.getAllProjects());
+		model.addAttribute("jobTitles",jobService.getAllJobTitle());
+		model.addAttribute("skills", skillService.getAllSkills());
 		return new ModelAndView("admin/addEmployee");
 	}
 
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
-	public String submitEmployeeForm(@ModelAttribute("employee") Employee employee) {
-		employeeService.insertEmployee(employee);
+	public String submitEmployeeForm(@ModelAttribute("employee") Employee employee,
+			@ModelAttribute("jobDetails") JobDetails jobDetails,@RequestParam("skillId") List<Integer> skillId) {
+		if(employee!=null)
+		{
+		boolean isInserted= employeeService.insertEmployee(employee);
+		  if(isInserted)
+		  {
+			  Employee emp=employeeService.getEmployeeByEmailId(employee.getEmailId());
+			  System.out.println(employee);
+			  jobDetails.setEmpCode(emp.getEmpCode());
+			  jobDetailsService.insertJobDetails(jobDetails);
+			  
+			  for(int id:skillId)
+			  {   EmployeeSkill employeeSkill=new EmployeeSkill();
+			       employeeSkill.setEmpCode(emp.getEmpCode());
+				  employeeSkill.setSkillCode(id);
+				  System.out.println(employeeSkill.toString());
+				  employeeSkillService.insertEmployeeSkill(employeeSkill);
+			  }
+		  }
+	}
 		return "redirect:/admin/employee";
 
 	}
@@ -177,5 +206,11 @@ public class AdminController {
 	public String editJob(Model model, @RequestParam("id") int id) {
 		model.addAttribute("job", jobService.getJobTitleById(id));
 		return "admin/editJob";
+	}
+	
+	@RequestMapping(value="/searchEmployee", method=RequestMethod.GET)
+	public String searchEmployee()
+	{
+		return "searchEmployee";
 	}
 }

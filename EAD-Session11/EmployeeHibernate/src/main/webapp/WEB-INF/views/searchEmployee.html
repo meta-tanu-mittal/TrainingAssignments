@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="ISO-8859-1">
+<title>Search Employee By Criteria</title>
+</head>
+<body>
+<form th:action="@{/searchResult}" method="get">
+<input name="searchBy" type="radio" value="name"  checked/>Name<br/>
+<input name="searchBy" type="radio" value="skills"  />Skills<br/>
+<input name="searchBy" type="radio" value="project"  />Project<br/>
+<input name="searchBy" type="radio" value="experience" />Experience<br/>
+<input type="text" name="input" required/>
+<input type="submit" value="submit"/>
+</form>
+</body>
+</html>

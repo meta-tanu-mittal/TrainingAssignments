@@ -87,4 +87,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return (Employee) criteria.uniqueResult();
 	}
 
+	@Override
+	public List<Employee> getEmployeeByName(String name) {
+		Criteria criteria=sessionFactory.getCurrentSession().createCriteria(Employee.class);
+		criteria.add(Restrictions.or(Restrictions.like("firstName","%"+name+"%"),Restrictions.like("lastName","%"+name+"%")));		
+		return criteria.list();
+	}
+
+	@Override
+	public Employee getEmployeeByEmailId(String emailId) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Employee.class);
+		criteria.add(Restrictions.eq("emailId", emailId));
+		return (Employee) criteria.uniqueResult();
+	}
+
 }
