@@ -1,0 +1,60 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Employee Dashboard</title>
+</head>
+<body>
+	<a href="">Search Employee</a>
+	 <a th:href="${'editProfile?empCode='+employee.empCode}">Edit
+		Profile</a>
+	<a href="">Skills</a>
+	<a href="../logout">Logout</a>
+
+	<table>
+		<tr>
+			<td>Employee Code:</td>
+			<td th:text="${employee.empCode}" th:value="${employee.empCode}"></td>
+		</tr>
+		<tr>
+			<td>First Name:</td>
+			<td th:text="${employee.firstName}"></td>
+		</tr>
+		<tr>
+			<td>Last Name:</td>
+			<td th:text="${employee.lastName}"></td>
+		</tr>
+		<tr>
+			<td>Date Of Birth:</td>
+			<td th:text="${employee.dob}"></td>
+		</tr>
+		<tr>
+			<td>Gender:</td>
+			<td th:text="${employee.gender}"></td>
+		</tr>
+		<tr>
+			<td>Primary Contact No:</td>
+			<td th:text="${employee.primaryContactNo}"></td>
+		</tr>
+		<tr>
+			<td>Secondary Contact No:</td>
+			<td th:text="${employee.secondaryContactNo}"></td>
+		</tr>
+		<tr>
+			<td>Email Id:</td>
+			<td th:text="${employee.emailId}"></td>
+		</tr>
+		<tr>
+			<td>Skype Id:</td>
+			<td th:text="${employee.skypeId}"></td>
+		</tr>
+
+
+
+
+
+
+
+	</table>
+</html>
