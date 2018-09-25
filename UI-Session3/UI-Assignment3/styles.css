@@ -1,0 +1,63 @@
+.square {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+#first {
+    background-color: red;
+    animation-delay: -0s;
+}
+
+#second {
+    background-color: yellow;
+    animation-delay: -0.5s;
+}
+
+#third {
+    background-color: blue;
+    animation-delay: -1s;
+}
+
+#fourth {
+    background-color: purple;
+    animation-delay: -1.5s;
+}
+
+@keyframes rotate {
+    0% {
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        left: 100px;
+        top: 0px;
+    }
+
+    50% {
+        left: 100px;
+        top: 100px;
+    }
+
+    75% {
+        left: 0px;
+        top: 100px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+
+div {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 200px;
+}
