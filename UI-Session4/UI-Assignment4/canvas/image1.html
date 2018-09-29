@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <canvas id="my-canvas" width="200px" height="200px">
+    </canvas>
+
+    <script>
+        var canvas = document.getElementById("my-canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.fillStyle = "skyblue";
+        ctx.arc(50, 50, 50, 0, 2 * Math.PI);
+        ctx.fill();
+
+    </script>
+</body>
+
+</html>
