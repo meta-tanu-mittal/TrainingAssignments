@@ -1,65 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
-              integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
-              crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1>Contact Us Today</h1>
-        <form>
-            <div class="input-container">
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Contact Us Today</h1>
+    <form action="#">
+        <div class="input-container">
+            <div class="text-name">
                 <label>First Name</label>
-                <i class="fa fa-user icon"></i>
-                <input type="text" placeholder="First Name"/>
             </div>
-             <div class="input-container">
+            <div>
+                <i class="fas fa-user icon"></i>
+                <input type="text" placeholder="First Name" class="input-field" minlength="2" pattern="[a-zA-Z]*" required />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Last Name</label>
+            </div>
+            <div>
                 <i class="fa fa-user icon"></i>
-                <input type="text" placeholder="Last Name"/>
+                <input type="text" placeholder="Last Name" class="input-field" pattern="[a-zA-Z]*" />
             </div>
-            <div class="input-container">
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Email</label>
+            </div>
+            <div>
                 <i class="fa fa-envelope-square icon"></i>
-                <input type="email" placeholder="Email"/>
+                <input type="email" placeholder="Email" class="input-field" required />
             </div>
-            <div class="input-container">
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Phone</label>
-                <i class="fa fa-phone icon"></i>
-                <input type="tel" placeholder="Phone"/>
             </div>
-            <div class="input-container">
+            <div>
+                <i class="fa fa-phone icon"></i>
+                <input type="tel" placeholder="(845)555-1212" class="input-field" minlength="8" pattern="[0-9]*" maxlength="12" required />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Address</label>
-                <i class="fa fa-address-book icon"></i>
-                <input type="text" placeholder="Address"/>
             </div>
-            <div class="input-container">
+            <div>
+                <i class="fa fa-home icon"></i>
+                <input type="text" placeholder="Address" class="input-field" required />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>City</label>
-                <i class="fa fa-address-book icon"></i>
-                <input type="text" placeholder="City"/>
             </div>
-            <div class="input-container">
+            <div>
+                <i class="fa fa-home icon"></i>
+                <input type="text" placeholder="City" class="input-field" pattern="[a-zA-Z]+" required />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>State</label>
-                <i class="fa fa-phone icon"></i>
-                <input type="text" placeholder="State"/>
             </div>
-            <div class="input-container">
+            <div>
+                <i class="fa fa-list icon"></i>
+                <select class="input-field">
+                    <option selected disabled required>Please select your state</option>
+                    <option>Rajasthan</option>
+                    <option>Uttar Pradesh</option>
+                    <option>Maharashtra</option>
+                </select>
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Zip Code</label>
-                <i class="fa fa-phone icon"></i>
-                <input type="text" placeholder="Zip Code"/>
             </div>
-            <div class="input-container">
+            <div>
+                <i class="fa fa-home icon"></i>
+                <input type="text" placeholder="Zip Code" class="input-field" pattern="[0-9]{6}" required />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Website or domain name</label>
-                <i class="fa fa-phone icon"></i>
-                <input type="text" placeholder="State"/>
             </div>
-            <div class="input-container">
+            <div>
+                <i class="fa fa-globe-asia icon"></i>
+                <input type="text" placeholder="Website or domain name" class="input-field" />
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
                 <label>Do you have hosting?</label>
-                <i class="fa fa-phone icon"></i>
-                <input type="radio" value="yes">Yes<br/>
-                <input type="radio" value="no">No
             </div>
-        </form>
-    </body>
+            <div>
+                <i class=" icon"></i>
+                <input type="radio">yes<br />
+                <i class=" icon"></i>
+
+                <input type="radio">no
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name">
+                <label>Project description</label>
+            </div>
+            <div>
+                <i class="fa fa-pencil-alt icon"></i>
+                <textarea rows="2" placeholder="Project description" class="input-field"></textarea>
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="text-name"></div>
+            <div>
+                <button class="input-field" id="submit-button">Send<i class="fa fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </form>
+</body>
+
 </html>
