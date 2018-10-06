@@ -1,0 +1,70 @@
+Conversation opened. 1 unread message. Skip to content Using Mail with screen readers Click here to enable desktop notifications for Mail. Learn more Hide 2 of 927 (no subject) Inbox x Tanu Mittal <tanu.mittal@metacube.com> Attachments 1:50 AM (8 hours ago) to me 4 Attachments * {
+    margin: 0;
+    padding: 0;
+    border: 0px solid black;
+    background-color: #F4F4F4;
+}
+
+.body {
+    /*    background-color: whitesmoke;*/
+}
+
+form {
+    text-align: center;
+}
+
+.icon {
+    padding: 6px;
+    text-align: center;
+    min-width: 30px;
+    vertical-align: top;
+    border-left: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+
+
+
+}
+
+
+
+.input-container {
+    display: flex;
+    margin-bottom: 7px;
+
+}
+
+.input-container :nth-child(2) {
+    display: flex;
+}
+
+.text-name {
+    padding: 6px;
+    width: 40%;
+    text-align: right;
+
+}
+
+.input-field {
+    padding: 6px;
+    background-color: white;
+    margin-left: 0px;
+}
+
+#submit-button {
+    background-color: orange;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+#submit-button i {
+    background-color: orange;
+}
+
+
+input:focus:invalid {
+    border: 2px solid red;
+    outline: none;
+}
+
+styles.css Displaying styles.css.

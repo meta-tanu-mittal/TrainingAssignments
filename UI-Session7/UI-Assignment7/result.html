@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="addElement.js"></script>
+    <script src="inputValidations.js"></script>
+
+</head>
+
+<body>
+    <h1>Successful Registration!!</h1>
+    <form action="result.html">
+        <div id="myForm">
+            <div class="input-container">
+                <div class="text-name">
+                    <label>First Name</label>
+                </div>
+                <div>
+                    <i class="fas fa-user icon"></i>
+                    <input type="text" class="input-field" id="firstName" readonly />
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="text-name">
+                    <label>Last Name</label>
+                </div>
+                <div>
+                    <i class="fa fa-user icon"></i>
+                    <input type="text" placeholder="Last Name" class="input-field" id="lastName" readonly />
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="text-name">
+                    <label>Email</label>
+                </div>
+                <div>
+                    <i class="fa fa-envelope-square icon"></i>
+                    <input type="email" placeholder="Email" class="input-field" id="email" readonly />
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="text-name">
+                    <label>Phone</label>
+                </div>
+                <div>
+                    <i class="fa fa-phone icon"></i>
+                    <input type="tel" placeholder="(845)555-1212" class="input-field" id="phone" readonly />
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="text-name">
+                    <label>Address</label>
+                </div>
+                <div>
+                    <i class="fa fa-home icon"></i>
+                    <input type="text" placeholder="Address" class="input-field" id="address" readonly />
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="text-name">
+                    <label>City</label>
+                </div>
+                <div>
+                    <i class="fa fa-home icon"></i>
+                    <input type="text" placeholder="City" class="input-field" id="city" readonly />
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="text-name">
+                    <label>State</label>
+                </div>
+                <div>
+                    <i class="fa fa-list icon"></i>
+                    <input type="text" class="input-field" id="state" readonly />
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </form>
+    <script>
+        var firstName = document.getElementById("firstName");
+        var lastName = document.getElementById("lastName");
+        var email = document.getElementById("email");
+        var phone = document.getElementById("phone");
+        var address = document.getElementById("address");
+        var city = document.getElementById("city");
+        var state = document.getElementById("state");
+        firstName.value = localStorage.getItem("firstName");
+        lastName.value = localStorage.getItem("lastName");
+        email.value = localStorage.getItem("email");
+        phone.value = localStorage.getItem("phone");
+        address.value = localStorage.getItem("address");
+        city.value = localStorage.getItem("city");
+        state.value = localStorage.getItem("state");
+        if (state.value === 'Rajasthan') {
+            addWebsite();
+            var website = document.getElementById("website");
+            website.value = localStorage.getItem("website");
+            website.readonly = "true";
+
+            addProject();
+            var project = document.getElementById("project");
+            project.value = localStorage.getItem("project");
+            project.readonly = "true";
+        }
+
+        if (state.value === 'Maharashtra') {
+            addZipCode();
+            var zipCode = document.getElementById("zipCode");
+            zipCode.value = localStorage.setItem("zipCode");
+            zipCode.readonly = "true";
+
+            addProject();
+            var project = document.getElementById("project");
+            project.value = localStorage.getItem("project");
+            project.readonly = "true";
+
+        }
+
+        if (state.value === 'Haryana') {
+            addZipCode();
+            var zipCode = document.getElementById("zipCode");
+            zipCode.value = localStorage.setItem("zipCode");
+            zipCode.readonly = "true";
+        }
+
+    </script>
+</body>
+
+</html>
