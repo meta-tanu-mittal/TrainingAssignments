@@ -1,0 +1,45 @@
+<div ng-controller="itemController">
+<header class="py-3 ">
+		<div class="row">
+			<div class="col-6">
+                <a href="#!/"><i class="fa fa-leaf"></i></a>
+				<a href="#"><i class="fa fa-shopping-cart"></i><span class="badge badge-dark">{{cartItemCount}}</span></a>
+			</div>
+			<div class="col-6 clearfix">
+				<div class="float-right">
+					<div class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown">
+							John Doe
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">My Orders</a>
+							<a class="dropdown-item" href="#">Log Out</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<section class="row pt-3">
+		<aside class="col-md-3 d-flex flex-column px-0 nav-pills" >
+			<a href="#!/" class="nav-link pl-2 py-2 active border" >All Categories</a>
+			<a  class="nav-link pl-2 py-2 border" href="#!/category/{{category.name}}" ng-repeat="category in categories">{{category.name}}</a>
+		</aside>
+		<div class="col-md-9 row">
+			<div class="col-md-6 mt-2" ng-repeat="item in items|filter:categoryName ">
+				<div class="card">
+                    <div class="card-body d-flex flex-column">
+					<img src="{{item.imagePath}}" style="height:10rem" alt="groceryItem" />
+					<strong>{{item.name}}</strong>
+					<p>{{item.price}}</p>
+					<button ng-click="addToCart(item)">ADD TO CART</button>
+                        </div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	</div>

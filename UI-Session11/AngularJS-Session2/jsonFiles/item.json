@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "mango",
+      "price": "100",
+      "imagePath": "images/mango.jpg",
+      "category": "Fruits"
+    },
+    {
+      "id": "2",
+      "name": "milk",
+      "price": "50",
+      "imagePath": "images/milk.jpg",
+      "category": "Dairy"
+    },
+    {
+      "id": "3",
+      "name": "brinjal",
+      "price": "80",
+      "imagePath": "images/brinjal.jpg",
+      "category": "Vegetables"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Bread"
+    },
+    {
+      "name": "Dairy"
+    },
+    {
+      "name": "Fruits"
+    },
+    {
+      "name": "Vegetables"
+    },
+    {
+      "name": "Seasonings and Prices"
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "name": "mango",
+      "price": "100",
+      "imagePath": "images/mango.jpg",
+      "category": "Fruits",
+      "quantity": 12
+    },
+    {
+      "id": "2",
+      "name": "milk",
+      "price": "50",
+      "imagePath": "images/milk.jpg",
+      "category": "Dairy",
+      "quantity": 8
+    }
+  ]
+}
