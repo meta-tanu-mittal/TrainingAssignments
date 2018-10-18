@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+}
+
+.headerContainer
+{
+    background-image: url(images/homebg.png)
+}
+
+.header > div
+{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.headerAnchor > a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.headerSocial >img
+{
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+}
+
+.funApp > div
+{
+    display: inline-block;
+    width: 49%;
+    text-align: left;
+    vertical-align: top;
+    padding-top: 150px;
+    color: white;
+}
+
+.funAppText > a
+{
+    text-decoration: none;
+    padding :10px;
+    color: black;
+}
+
+#download-button
+{
+   background-color:#fc6a45; 
+}
+
+#feature-button
+{
+     background-color: #4467C6;
+}
+
+
+#bodySection
+{
+    background-image: url(images/bodybg.png);
+}
+
+
+.subHeading
+{
+    text-align: center;
+}
+.subHeading > h1
+{
+    color:#6699ff;
+}
+
+#featuresFig div
+{
+    display: inline-block;
+    width:33%;
+}
+
+#feature-img 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.phoneImage >div
+{
+     display: inline-block;
+    width:49%;
+    vertical-align:top;
+    padding-top: 100px;
+    text-align: center;
+}
+
+#review-div1 div
+{
+     display: inline-block;
+    width:49%;
+    text-align: center;
+}
+
+#review-div2 div
+{
+     display: inline-block;
+    width:49%;
+    text-align: center;
+}
+
+#footer
+{
+      background-color: 383a53;
+}
+
+#downloadApp
+{
+    background-image: url(images/homebg.png);
+padding-top: 20px;
+  
+}
+
+#downloadApp div
+{
+     display: inline-block;
+    width:49%;
+    text-align: center;
+    vertical-align: top;
+}
+
+#allRightsText
+{
+    text-align: center;
+    padding: 10px;
+}
+
