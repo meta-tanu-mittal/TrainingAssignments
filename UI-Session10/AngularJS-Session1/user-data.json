@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "name": "Tanu",
+        "contact": "789456123",
+        "location": "jaipur"
+    }, {
+        "id": "2",
+        "name": "Richa",
+        "contact": "789456123",
+        "location": "ajmer"
+    }, {
+        "id": "3",
+        "name": "namrata ",
+        "contact": "789456123",
+        "location": "alwar"
+    }, {
+        "id": "4",
+        "name": "arjita",
+        "contact": "789456123",
+        "location": "shadol"
+    }
+      ]
