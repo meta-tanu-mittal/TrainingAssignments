@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <circle cx="50" cy="50" r="50" fill="white" stroke-width="8" stroke="grey"></circle>
+    <path d="M 50 0 A  50 50 0 1 0 50 100 z " fill="skyblue" />
+</svg>
