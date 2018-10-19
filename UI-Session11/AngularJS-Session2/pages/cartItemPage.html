@@ -1,0 +1,46 @@
+<div ng-controller="cartController">
+	
+	<h1>Shopping Cart</h1>
+
+	<section class="container border">
+		<div class="row d-flex mt-2">
+			<div class="col-6">
+				<p>You have {{cartItemCount}} items in your shopping cart</p>
+			</div>
+			<div class="col-6 text-right">
+				<button ng-click="clearShoppingCart()">Clear Shopping Cart</button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-3">
+			</div>
+			<div class="col-3"><strong>Product</strong>
+			</div>
+			<div class="col-3"><strong>Quantity</strong>
+			</div>
+			<div class="col-3"><strong>Price</strong>
+			</div>
+		</div>
+
+	
+			<div class="row" ng-repeat="cartItem in carts">
+				<div class="col-3"><img class="rounded-circle" style="height:6em" src="{{cartItem.imagePath}}"/>
+				</div>
+				<div class="col-3 pt-4">{{cartItem.name}}
+				</div>
+				<div class="col-3 pt-4 d-flex">
+					<button style="height:2em" ng-click="increaseItem(cartItem)">+</button>
+					<p class="border" style="height:2em">{{cartItem.quantity}} item in cart</p>
+					<button style="height:2em" ng-click="decreaseItem(cartItem)">-</button>
+				</div>
+				<div class="col-3 pt-4">{{cartItem.price*cartItem.quantity}}
+				</div>
+			</div>
+			
+		<p class="text-right">{{totalCartAmount}}</p>
+		<a class="btn btn-primary mb-3" href="#!/shipping">Check Out</a>
+	</section>
+
+
+</div>

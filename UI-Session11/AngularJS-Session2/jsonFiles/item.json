@@ -20,6 +20,48 @@
       "price": "80",
       "imagePath": "images/brinjal.jpg",
       "category": "Vegetables"
+    },
+    {
+      "id": "4",
+      "name": "banana",
+      "price": "40",
+      "imagePath": "images/banana.jpg",
+      "category": "Fruits"
+    },
+    {
+      "id": "5",
+      "name": "bread",
+      "price": "30",
+      "imagePath": "images/whitebread.jpg",
+      "category": "Bread"
+    },
+    {
+      "id": "6",
+      "name": "pineapple",
+      "price": "80",
+      "imagePath": "images/pineapple.jpg",
+      "category": "Fruits"
+    },
+    {
+      "id": "7",
+      "name": "butter",
+      "price": "45",
+      "imagePath": "images/butter.jpg",
+      "category": "Dairy"
+    },
+    {
+      "id": "8",
+      "name": "onion",
+      "price": "30",
+      "imagePath": "images/onion.jpg",
+      "category": "Vegetables"
+    },
+    {
+      "id": "9",
+      "name": "tomato",
+      "price": "25",
+      "imagePath": "images/tomato.jpeg",
+      "category": "Vegetables"
     }
   ],
   "categories": [
@@ -46,7 +88,7 @@
       "price": "100",
       "imagePath": "images/mango.jpg",
       "category": "Fruits",
-      "quantity": 12
+      "quantity": 5
     },
     {
       "id": "2",
@@ -54,7 +96,7 @@
       "price": "50",
       "imagePath": "images/milk.jpg",
       "category": "Dairy",
-      "quantity": 8
+      "quantity": 4
     }
   ]
 }
