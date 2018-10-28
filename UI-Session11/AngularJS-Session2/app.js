@@ -89,10 +89,13 @@ myApp.controller("cartController", function ($scope, $http, $rootScope) {
 	$http.get("http://localhost:3000/carts").then(function (response) {
 		$scope.carts = response.data;
 		var total = 0;
+		var cartItem=0;
 		for (var item in $scope.carts) {
 			total += ($scope.carts[item].quantity * $scope.carts[item].price);
+			cartItem+=$scope.carts[item].quantity;
 		}
 		$scope.totalCartAmount = total;
+		$rootScope.cartItemCount=cartItem;
 	});
 
 	$scope.increaseItem = function (item) {
@@ -103,22 +106,24 @@ myApp.controller("cartController", function ($scope, $http, $rootScope) {
 				url: "http://localhost:3000/carts/" + item.id,
 				data: response.data,
 				datatype: "json"
+			}).then(function (data) {
+				$http.get("http://localhost:3000/carts").then(function (response) {
+					$scope.carts = response.data;
+					console.log($scope.carts);
+
+					var count = 0;
+					var total = 0;
+					for (var cartItem in $scope.carts) {
+						count += $scope.carts[cartItem].quantity;
+						total += (($scope.carts[cartItem].quantity) * ($scope.carts[cartItem].price));
+					}
+					$rootScope.cartItemCount = count;
+					$scope.totalCartAmount = total;
+				});
 			});
 		});
 
-		$http.get("http://localhost:3000/carts").then(function (response) {
-			$scope.carts = response.data;
-			console.log($scope.carts);
 
-			var count = 0;
-			var total = 0;
-			for (var cartItem in $scope.carts) {
-				count += $scope.carts[cartItem].quantity;
-				total += (($scope.carts[cartItem].quantity) * ($scope.carts[cartItem].price));
-			}
-			$rootScope.cartItemCount = count;
-			$scope.totalCartAmount = total;
-		});
 
 	};
 
@@ -131,27 +136,29 @@ myApp.controller("cartController", function ($scope, $http, $rootScope) {
 					url: "http://localhost:3000/carts/" + item.id,
 					data: response.data,
 					datatype: "json"
+				}).then(function (data) {
+					$http.get("http://localhost:3000/carts").then(function (response) {
+						$scope.carts = response.data;
+						console.log($scope.carts);
+
+						var count = 0;
+						var total = 0;
+						for (var cartItem in $scope.carts) {
+							count += $scope.carts[cartItem].quantity;
+							total += (($scope.carts[cartItem].quantity) * ($scope.carts[cartItem].price));
+						}
+						$rootScope.cartItemCount = count;
+						$scope.totalCartAmount = total;
+					});
+
 				})
 			} else {
-				$http.delete("http://localhost:3000/carts/"+item.id).then(function(response){});
+				$http.delete("http://localhost:3000/carts/" + item.id).then(function (response) {});
 				window.location.reload();
 
 			}
 		})
 
-		$http.get("http://localhost:3000/carts").then(function (response) {
-			$scope.carts = response.data;
-			console.log($scope.carts);
-
-			var count = 0;
-			var total = 0;
-			for (var cartItem in $scope.carts) {
-				count += $scope.carts[cartItem].quantity;
-				total += (($scope.carts[cartItem].quantity) * ($scope.carts[cartItem].price));
-			}
-			$rootScope.cartItemCount = count;
-			$scope.totalCartAmount = total;
-		});
 
 	};
 
