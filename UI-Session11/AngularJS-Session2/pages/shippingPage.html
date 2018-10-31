@@ -1,0 +1,50 @@
+<div ng-controller="cartController">
+
+	<h1>Shipping</h1>
+
+	<section>
+		<div class="row">
+			<div class="col-6">
+				<div class="d-flex flex-column">
+					<label>Name</label>
+					<input type="text" />
+					<label>Address</label>
+					<input type="text" placeholder="line1" />
+					<input type="text" placeholder="line2" class="mt-3" />
+					<label>City</label>
+					<input type="text" />
+					<a class="btn btn-primary btn-sm mt-3" href="#!/orderStatus">Place Order</a>
+				</div>
+			</div>
+			<div class="col-6 border">
+
+				<strong>Order Summary</strong>
+				<p>You have {{cartItemCount}} items in shopping cart</p>
+				<hr>
+				<div ng-repeat="cartItem in carts">
+					<div class="row d-flex">
+						<div class="col-6">
+							<p>{{cartItem.quantity}}*{{cartItem.name}}</p>
+						</div>
+						<div class="col-6 float-right">
+							<p>{{cartItem.price*cartItem.quantity}}</p>
+						</div>
+					</div>
+					<hr>
+				</div>
+				<div class="d-flex mb-3">
+					<div class="col-6">
+						<strong>Total</strong>
+					</div>
+					<div class="col-6 ">
+						<strong >{{totalCartAmount}}</strong>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+</div>
